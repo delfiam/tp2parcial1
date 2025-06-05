@@ -1,0 +1,1 @@
+[{"id":1,"numero":10,"tipo":"A","monto":1405200,"estado":"pendiente de pago"},{"numero":3,"tipo":"B","monto":32424,"estado":"próximo a vencer","id":2},{"numero":5,"tipo":"B","monto":54646,"estado":"próximo a vencer","id":3}]
