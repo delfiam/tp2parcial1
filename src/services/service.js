@@ -1,4 +1,5 @@
 import Factory from "../models/Factory.js";
+import validation from "../utils/validation.js";
 class FacturasService {
     constructor() {
         this.facturasModel = Factory.create(process.env.PERSISTENCE);
@@ -8,8 +9,13 @@ class FacturasService {
         return await this.facturasModel.getFacturas();
     };
 
-    postFactura = async (newFactura) => {
-        return await this.facturasModel.postFactura(newFactura);
+    postFactura = async (factura) => {
+        const validarFactura = validation.schema.validate(factura);
+        if (validarFactura.error) {
+            return "Error: " + validarFactura.error;
+        } else {
+        return await this.facturasModel.postFactura(factura);
+        }
     };
     getFacturasPorTipo = async (tipo) => {
         return await this.facturasModel.getFacturasPorTipo(tipo);

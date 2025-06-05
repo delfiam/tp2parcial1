@@ -17,9 +17,9 @@ class FacturasController {
     postFactura = async (req, res) => {
         try {
             const factura = req.body;
-            if (!factura || !factura.tipo || !factura.monto || !factura.numero || !factura.estado) {
+           /* if (!factura || !factura.tipo || !factura.monto || !factura.numero || !factura.estado) {
                 return res.status(400).json({ error: "Faltan campos al insertar" });
-            }
+            }*/
             const facturaCreada = await this.facturasService.postFactura(factura);
             res.status(201).json(facturaCreada);
         } catch (error) {
